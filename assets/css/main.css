@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* html, body {
+  height: 100%;
+}
+
+body {
+  
+  display: grid;
+  place-items: center;
+} */
+
+.container {
+
+  padding:24px;
+}
+
+.flex{
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex h4 {
+  font-family: Atkinson Hyperlegible;
+font-size: 24px;
+font-weight: 700;
+line-height: 29.76px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+color:rgba(21, 41, 56, 1);
+
+}
+
+.flex a {
+
+  background-color: rgba(253, 162, 20, 1);
+  padding: 10px 18px;
+  border-radius: 26px;
+  text-decoration: none;
+  color:rgba(252, 252, 252, 1);
+}
+
+.game {
+
+  display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    place-items: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.gameActive {
+
+  padding: 6px 20px;
+  background-color: rgba(48, 72, 89, 1);
+  border-radius: 59px;
+  font-family: Atkinson Hyperlegible;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 49.6px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: rgba(252, 252, 252, 1);
+  cursor: pointer;
+  user-select: none;
+  color: transparent;
+}
+
+.gameActiveButon {
+  color: rgba(252, 252, 252, 1);
+   background-color: rgba(188, 206, 217, 1);
+}
