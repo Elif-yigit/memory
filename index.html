@@ -9,18 +9,23 @@
 </head>
 <body>
   <div class="container">
+<dialog class="dialog">
 
+  <button id="restart">Restart</button>
+  <button id="close">Close</button>
+</dialog>
   <div class="flex">
 <h4>memory</h4>
-<a href="#">Menu</a>
+<a  class="menu">Menu</a>
 </div>
   <div class="game">
     <!-- <div class="gameActive"></div> -->
   </div>
-
-  <div class="skor"></div>
+<div class="skorInfo">
+  <div class="skor"> Skor: 0</div>
+  <div class="moves">Moves: 0</div>
   <div class="demo"></div>
-  <button onclick="clearInterval(demoElement)">Stop time</button>
+</div>
 </div>
 </body>
 </html>

@@ -54,6 +54,7 @@ color:rgba(21, 41, 56, 1);
     place-items: center;
     align-items: center;
     gap: 20px;
+    margin-bottom: 102px;
 }
 
 .gameActive {
@@ -72,9 +73,65 @@ color:rgba(21, 41, 56, 1);
   cursor: pointer;
   user-select: none;
   color: transparent;
+ 
 }
 
 .gameActiveButon {
   color: rgba(252, 252, 252, 1);
    background-color: rgba(188, 206, 217, 1);
+}
+
+.gameActive.matched.gameActiveButon {
+
+  pointer-events: none;
+  background-color: brown;
+  color: initial;
+}
+
+.skorInfo {
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.skor , .moves , .demo {
+
+  background-color: rgba(223, 231, 236, 1);
+  padding: 13px 13px;
+  border-radius: 5px;
+}
+
+dialog {
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+  padding: 100px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+
+@media screen and (min-width: 768px) {
+  
+  .container {
+
+    margin: 40px;
+  }
+
+  .game {
+
+    margin: 49px 136px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+  .game {
+margin: 105px 355px;
+}
+
 }

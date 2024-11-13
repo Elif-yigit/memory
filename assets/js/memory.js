@@ -25,7 +25,8 @@ html skoru innerhtml ile bağla
  sonra birer arttır
 
 
-
+const d = new Date();  güncel tarihi almak için kullanılır.
+toLocaleTimeString() fonksiyonu, bilgisayarın yerel saat dilimine göre saati döndürür.
 
 
  */
@@ -43,8 +44,12 @@ let secilenKart=[];
 oyunlar.sort(() => Math.random() - 0.5);
 
 let skor =0;
-
+let hamle =0;
+const moves = document.querySelector('.moves');
 const score = document.querySelector('.skor');
+const menu = document.querySelector('.menu');
+const dialog = document.querySelector('.dialog');
+const btn = document.querySelector('.close');
 // console.log(oyunlar);
  
  for (const oyun of oyunlar) {
@@ -55,35 +60,83 @@ const score = document.querySelector('.skor');
 const items = document.querySelectorAll('.gameActive');
 
  function aktifButonEkle () {
+ 
+  if(this.classList.contains('gameActiveButon')) return;
 
+
+   
+   
   this.classList.add('gameActiveButon');
-  setTimeout(() => {
-   this.classList.remove('gameActiveButon');
+  secilenKart.push(this.innerText);
+  console.log(secilenKart);
+  moves.innerText ="Moves : " + hamle ;
+  hamle++;
+  
+  if(secilenKart.length === 2) {
 
+    if(secilenKart[0] == secilenKart[1]) {
+     
+      console.log('esit');
+
+      const activeButonlar = document.querySelectorAll('.gameActiveButon');
+
+      
+      for(const sayi of activeButonlar) {
+
+        sayi.classList.add('matched');
+        
+      }
+     
+      console.log(activeButonlar);
+      skor++;
+      score.innerText ="Skor : " + skor;
+    } else {
+
+      console.log('değil');
+    }
+
+    secilenKart = [];
+   
+  }
+
+  const activeButonlar = document.querySelectorAll('.gameActive');
+
+  setTimeout(() => {
+
+    for(const sayi of activeButonlar) {
+   
+   sayi.classList.remove('gameActiveButon');
+   sayi.classList.remove('matched');
+  
+  }
   } ,2000);
 
  
   
  }
 
+
  secilenKart = [];
 
 
 
 function eslestir () {
-
+  
+ 
   for (const item of items) {
 
     item.addEventListener('click', aktifButonEkle);
-    skor++;
-    item.classList.add('eslesti');
-    secilenKart.push(oyunlar);
+   
+    // item.classList.add('eslesti');
+   
+    
   }
-
-  score.innerHTML =`<div>Skor : ${skor}</div>` 
+  
+ 
+  
   
 
- if(skor === 16) {
+ if(skor === 8) {
 
    console.log('oyun bitti');
   
@@ -95,9 +148,31 @@ eslestir ();
 
 const demoElement = document.querySelector(".demo");
 const d = new Date(); 
-console.log(demoElement);  // Öğeyi kontrol et
+console.log(demoElement);  
 if (demoElement) {
    demoElement.innerHTML = d.toLocaleTimeString();
 } else {
    console.error('Element bulunamadı!');
 }
+
+
+function openMenu () {
+
+  if (dialog.open) {
+    console.log("Dialog open");
+  } else {
+    console.log("Dialog closed");
+  }
+}
+
+menu.addEventListener('click' , () => {
+
+  dialog.showModal();
+  openMenu (dialog);
+});
+
+btn.addEventListener('click' , () => {
+
+  dialog.close();
+  // openMenu ();
+});
